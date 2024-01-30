@@ -1,15 +1,45 @@
-# sever port config
 server:
-  port: 8001
+  port: 9001
 
-# oracle driver config
+# MySql driver config
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/projectA
+    url: jdbc:mysql://localhost:3306/projectA
     username: root
     password: 1234
 
-
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: byatpackage
+    password: hqjkzemenjibdhae
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          connection-timeout: 5000
+          write-timeout: 5000
+          starttls:
+            enable: true
+    auth-code-expiration-millis: 1800000
 
 #jpa config
+#ddl-auto 옵선은 create로 하게되면 기존 테이블을 삭제후 다시 생성(개발 초기에는 자신의 로컬서버 create update)
+jpa:
+  hibernate:
+    ddl-auto: create-drop
+  properties:
+    hibernate:
+#      show_sql: true
+      format_sql: true
+
+jwt:
+  secret-key:
+    access-token: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+    refresh-token: ${JWT_REFRESH_SECRET_KEY}
+  token-expired-time:
+    access-token : 86400
+    refresh-token: ${REFRESH_TOKEN_EXPIRED_TIME}
+

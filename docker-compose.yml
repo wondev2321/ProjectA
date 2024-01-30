@@ -1,6 +1,19 @@
-
+version : '3'
 
 services:
+  spring-app:
+    container_name: spring-app-container
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: openjdk:17-jdk
+    ports:
+      - 8080:8080
+    volumes:
+      - ./target/spring-boot-app.jar:/app/app.jar
+    depends_on:
+      - database
+
   database:
     #컨테이너의 재시작과 관련하여 설정
     restart: on-failure
@@ -9,18 +22,18 @@ services:
     container_name: mysql_db
 
     #컨테이너의 이미지를 정의
-    image: mysql/mysql-server:8.0
+    image: mysql:8.0.33
 
     #환경변수를 설정
     environment:
-
       MYSQL_DATABASE: projectA
-      MYSQL_ROOT_HOST: '%'
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: "ABCD1234@"
 
     #호스트와 컨테이너의 포트 바인딩 설정에 사용된다.
     ports:
-      - "3307:3306"
+      - "3306:3306"
+
     #호스트의 지정된 경로로 컨테이너의 볼룸을 마운트 하도록 설정
+    #volumes : local 디렉토리와 컨테이너 경로 매칭
     volumes:
-      - ./mysql/conf.d:/etc/mysql/conf.
+      - ./mysqldata:/var/lib/mysql
