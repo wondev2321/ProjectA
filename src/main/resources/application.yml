@@ -6,14 +6,14 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/projectA
-    username: root
-    password: 1234
+    username: {}
+    password: {}
 
   mail:
     host: smtp.gmail.com
     port: 587
-    username: byatpackage
-    password: hqjkzemenjibdhae
+    username: {}
+    password: {}
     properties:
       mail:
         smtp:
@@ -37,9 +37,9 @@ jpa:
 
 jwt:
   secret-key:
-    access-token: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+    access-token: {}
     refresh-token: ${JWT_REFRESH_SECRET_KEY}
   token-expired-time:
-    access-token : 86400
+    access-token : {}
     refresh-token: ${REFRESH_TOKEN_EXPIRED_TIME}
 
