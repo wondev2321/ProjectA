@@ -26,8 +26,8 @@ services:
 
     #환경변수를 설정
     environment:
-      MYSQL_DATABASE: projectA
-      MYSQL_ROOT_PASSWORD: "ABCD1234@"
+      MYSQL_DATABASE: {}
+      MYSQL_ROOT_PASSWORD: {}
 
     #호스트와 컨테이너의 포트 바인딩 설정에 사용된다.
     ports:
