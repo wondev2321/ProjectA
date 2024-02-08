@@ -8,9 +8,9 @@ services:
       dockerfile: Dockerfile
     image: openjdk:17-jdk
     ports:
-      - 8080:8080
+      - 
     volumes:
-      - ./target/spring-boot-app.jar:/app/app.jar
+      - 
     depends_on:
       - database
 
@@ -26,12 +26,12 @@ services:
 
     #환경변수를 설정
     environment:
-      MYSQL_DATABASE: projectA
-      MYSQL_ROOT_PASSWORD: "ABCD1234@"
+      MYSQL_DATABASE: 
+      MYSQL_ROOT_PASSWORD: 
 
     #호스트와 컨테이너의 포트 바인딩 설정에 사용된다.
     ports:
-      - "3306:3306"
+      - 
 
     #호스트의 지정된 경로로 컨테이너의 볼룸을 마운트 하도록 설정
     #volumes : local 디렉토리와 컨테이너 경로 매칭
